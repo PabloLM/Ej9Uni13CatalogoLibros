@@ -99,9 +99,14 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 	public boolean equals(Object o){
 		boolean res=false;
 		
-		if (this.getAutor()==l.getAutor() && this.getTitulo()==l.getTitulo()) {
-			res=true;
+		if (o instanceof LibroImp&& o!=null) {
+			LibroImp l=(LibroImp) o;
+			
+			if (this.getAutor()==l.getAutor() && this.getTitulo()==l.getTitulo()) {
+				res=true;
+			}
 		}
+		
 		
 		return res;
 	}
