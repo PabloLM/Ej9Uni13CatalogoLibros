@@ -14,9 +14,9 @@ import clases.LibroImp;
 public interface Catalogo
 {
 	// Getters
-	ArrayList<LibroImp> getLibros();
+	ArrayList<LibroImp> getCatalogoLibros();
 	// Setters
-	void setLibros(ArrayList<LibroImp> arrayListLibros);
+	void setCatalogoLibros(ArrayList<LibroImp> arrayListLibros);
 	// Funcionalidades que se deben implementar - aunque esto no está claro (por decidir)
 	LibroImp obtenerLibro(int ISBN);
 }
