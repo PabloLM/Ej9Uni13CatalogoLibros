@@ -99,15 +99,12 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 	public boolean equals(Object o){
 		boolean res=false;
 		
-		if (o instanceof LibroImp&& o!=null) {
+		if (o instanceof LibroImp && o!=null) {
 			LibroImp l=(LibroImp) o;
 			
-			if (this.getAutor()==l.getAutor() && this.getTitulo()==l.getTitulo()) {
-				res=true;
-			}
+			res = this.getAutor()==l.getAutor() && this.getTitulo()==l.getTitulo() ? true : false;
 		}
-		
-		
+				
 		return res;
 	}
 	/**Devuelve
@@ -118,10 +115,10 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 	@Override
 	public int compareTo(LibroImp l){
 		int res=0;
-		if (this.getReferencia()>l.getReferencia()) {
-			res=1;
-		}else if(this.getReferencia()<l.getReferencia()){
-			res=-1;
+		
+		if (this.getReferencia() != l.getReferencia())
+		{
+			res = this.getReferencia() < l.getReferencia() ? -1 : 1;
 		}
 
 		return res;
