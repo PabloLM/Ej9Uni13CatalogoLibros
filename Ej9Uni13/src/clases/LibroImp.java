@@ -1,4 +1,8 @@
 package clases;
+
+import java.io.Serializable;
+
+import interfaces.Libro;
 /**
  9. Implementar una clase Libro que contenga las propiedades: autor, título, referencia y precio, cada una de ellas con su significado natural.
   La clase Libro posee todo tipo de constructores. También deben añadirse los métodos habituales básicos. Dos libros son iguales si tienen la misma referencia.
@@ -23,8 +27,8 @@ Aunque la gestión de la información se hace sobre una lista, los datos iniciales
  * Propiedades:
  * autor:	básica	String	consultable	modificable
  * título:	básica	String	consultable	modificable	
- * referencia:básica entero	consultable	 
- * precio:	básica	Precio	consultable	modificable
+ * referencia:básica entero	consultable	 					hay que guardar en un archivo externo el valor de la ultima referencia 
+ * precio:	básica	Real	consultable	modificable
  * 
  * Interfaz
  * 
@@ -37,7 +41,7 @@ Aunque la gestión de la información se hace sobre una lista, los datos iniciales
  * double getPrecio()
  * 	void setPrecio(double precio)
  */
-public class LibroImp {
+public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializable {
 	
 	private String autor;
 	private String titulo;
@@ -51,7 +55,7 @@ public class LibroImp {
 //		this.precio=0.0;
 	}
 	
-	public LibroImp(String autor,String titulo,int referencia,int precio){//cambia el parametro de precio
+	public LibroImp(String autor,String titulo,int referencia,double precio){//cambia el parametro de precio
 		this.autor=autor;
 		this.titulo=titulo;
 		this.referencia=referencia;
@@ -90,25 +94,43 @@ public class LibroImp {
 		return s;
 		
 	}
-	//Dos libros son iguales si tienen la misma referencia.
+	//Dos libros son iguales si tienen el mismo autor y el mismo titulo 
 	public boolean equals(LibroImp l){
 		boolean res=false;
+		
+		if (this.getAutor()==l.getAutor() && this.getTitulo()==l.getTitulo()) {
+			res=true;
+		}
 		
 		return res;
 	}
 	/**Devuelve
-	 *  1 si la referencia es mayor
+	 *  1 si la referencia del objeto que realiza la llamada es mayor
 	 *  0 si las referencias son iguales
-	 *  -1 si la referencia es menor
+	 *  -1 si la referencia del objeto que realiza la llamada es menor
 	 */
 	public int compareTo(LibroImp l){
 		int res=0;
-		
+		if (this.getReferencia()>l.getReferencia()) {
+			res=1;
+		}else if(this.getReferencia()<l.getReferencia()){
+			res=-1;
+		}
+
 		return res;
 	}
-	
+	//Clona un objeto de tipo LibroImp
 	public LibroImp clone(){
-		return null;
+		LibroImp l=null;
+		
+		try {
+			l=(LibroImp) super.clone();
+			
+		} catch (CloneNotSupportedException e) {
+			
+		}
+		
+		return l;
 		
 	}
 }
