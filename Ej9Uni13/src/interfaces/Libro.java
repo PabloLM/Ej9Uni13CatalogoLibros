@@ -18,7 +18,7 @@ public interface Libro {
 	  String getTitulo();
 	  	void setTitulo(String titulo);
 	  int getReferencia();
-	  	void setReferencia(int referencia);
+	  	void setJoseMaria(int referencia);
 	//  double getPrecio()
 	 //	void setPrecio(double precio)
 }
