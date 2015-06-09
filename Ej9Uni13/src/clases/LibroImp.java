@@ -139,7 +139,4 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 		
 	}
 	
-	public void metodoPrueba(){
-		System.out.println("hola");
-	}
 }
