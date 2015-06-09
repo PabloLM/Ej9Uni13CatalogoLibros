@@ -46,20 +46,20 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 	private String autor;
 	private String titulo;
 	private int referencia;
-//	private double precio;
+	private double precio;
 	
 	public LibroImp(){
 		this.autor=null;
 		this.titulo=null;
 		this.referencia=0000;
-//		this.precio=0.0;
+		this.precio=0.0;
 	}
 	
-	public LibroImp(String autor,String titulo,int referencia,double precio){//cambia el parametro de precio
+	public LibroImp(String autor,String titulo,int referencia,double precio){
 		this.autor=autor;
 		this.titulo=titulo;
 		this.referencia=referencia;
-//		this.precio=precio;
+		this.precio=precio;
 	}
 	
 	public String getAutor() {
@@ -80,14 +80,14 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 	public void setReferencia(int referencia) {
 		this.referencia = referencia;
 	}
-	/*
+	
 	public double getPrecio() {
 		return precio;
 	}
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-	*/
+	@Override
 	public String toString(){
 		String s=null;
 		s=getAutor()+","+getTitulo()+","+getReferencia()/*+","+getPrecio()*/;
@@ -95,7 +95,8 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 		
 	}
 	//Dos libros son iguales si tienen el mismo autor y el mismo titulo 
-	public boolean equals(LibroImp l){
+	@Override
+	public boolean equals(Object o){
 		boolean res=false;
 		
 		if (this.getAutor()==l.getAutor() && this.getTitulo()==l.getTitulo()) {
@@ -109,6 +110,7 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 	 *  0 si las referencias son iguales
 	 *  -1 si la referencia del objeto que realiza la llamada es menor
 	 */
+	@Override
 	public int compareTo(LibroImp l){
 		int res=0;
 		if (this.getReferencia()>l.getReferencia()) {
@@ -120,6 +122,7 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 		return res;
 	}
 	//Clona un objeto de tipo LibroImp
+	@Override
 	public LibroImp clone(){
 		LibroImp l=null;
 		
