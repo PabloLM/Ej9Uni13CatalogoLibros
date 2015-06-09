@@ -90,7 +90,7 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 	@Override
 	public String toString(){
 		String s=null;
-		s=getAutor()+","+getTitulo()+","+getReferencia()/*+","+getPrecio()*/;
+		s=getAutor()+","+getTitulo()+","+getReferencia()+","+getPrecio();
 		return s;
 		
 	}
@@ -137,5 +137,9 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 		
 		return l;
 		
+	}
+	
+	public void metodoPrueba(){
+		System.out.println("hola");
 	}
 }
