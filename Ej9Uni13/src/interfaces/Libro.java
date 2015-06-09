@@ -10,6 +10,8 @@ package interfaces;
 * 	void setReferencia(int referencia)
 * double getPrecio()
 * 	void setPrecio(double precio)
+* 
+* void imprimirLibro() <- toString bonito
 */
 public interface Libro {
 	
@@ -21,4 +23,6 @@ public interface Libro {
 	  	void setReferencia(int referencia);
 	  double getPrecio();
 	 	void setPrecio(double precio);
+	 	
+	 void imprimirLibro();
 }

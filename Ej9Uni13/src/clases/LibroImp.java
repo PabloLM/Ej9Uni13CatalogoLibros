@@ -1,9 +1,4 @@
-package clases;
-
-import java.io.Serializable;
-
-import interfaces.Libro;
-/**
+/** ENUNCIADO
  9. Implementar una clase Libro que contenga las propiedades: autor, título, referencia y precio, cada una de ellas con su significado natural.
   La clase Libro posee todo tipo de constructores. También deben añadirse los métodos habituales básicos. Dos libros son iguales si tienen la misma referencia.
    Además, los libros tienen definido un orden natural también por su referencia.
@@ -22,31 +17,50 @@ Aunque la gestión de la información se hace sobre una lista, los datos iniciales
  serán volcados en dicho archivo una vez realizada algún tipo de modificación sobre ellos.
  */
 
+package clases;
+
+import interfaces.Libro;
+
+import java.io.Serializable;
+
 /**Analisis
  * 
  * Propiedades:
- * autor:	básica	String	consultable	modificable
- * título:	básica	String	consultable	modificable	
- * referencia:básica entero	consultable	 					hay que guardar en un archivo externo el valor de la ultima referencia 
- * precio:	básica	Real	consultable	modificable
  * 
- * Interfaz
+ * NOMBRE		CARACTER		TIPO		CONSULTABLE		MODIFICABLE
+ * autor		básica			String		SI				SI
+ * título		básica			String		SI				SI	
+ * referencia	básica 			entero		SI				NO	 					 
+ * precio		básica			real		SI				SI
+ * 
+ * Interfaz 
  * 
  * String getAutor()
  *  void setAutor(String autor)
+ * 
  * String getTitulo()
  * 	void setTitulo(String titulo)
+ * 
  * int getReferencia()
- * 	void setReferencia(int referencia)
+ *
  * double getPrecio()
  * 	void setPrecio(double precio)
+ * 
+ * void imprimirLibro()
  */
 public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializable {
+	
+	// Long utilizado para la serializacion, do not touch
+	private static final long serialVersionUID = 1L;
+	
+	// Atributos
 	
 	private String autor;
 	private String titulo;
 	private int referencia;
 	private double precio;
+	
+	// Constructores
 	
 	public LibroImp(){
 		this.autor=null;
@@ -87,6 +101,9 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+	
+	// Sobrescrituras Object y compareTo
+	
 	@Override
 	public String toString(){
 		String s=null;
@@ -139,4 +156,14 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 		
 	}
 	
+	// Funcionalidades implementadas de la interface Libro
+	
+	@Override
+	public void imprimirLibro()
+	{
+		System.out.println("ISBN: "+getReferencia()
+				+"\nTítulo: "+getTitulo()
+				+"\nAutor: "+getAutor()
+				+"Precio: "+getPrecio());
+	}
 }
