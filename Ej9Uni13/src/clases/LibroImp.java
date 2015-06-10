@@ -70,7 +70,7 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 		this.precio=0.0;
 	}
 	
-	public LibroImp(String autor,String titulo,int referencia,double precio){
+	public LibroImp(String autor,String titulo,int referencia,double precio){//ha cambiar lo de la referencia autoAsignada
 		this.autor=autor;
 		this.titulo=titulo;
 		this.referencia=referencia;
