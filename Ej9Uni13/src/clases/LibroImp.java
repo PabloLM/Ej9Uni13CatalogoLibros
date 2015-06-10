@@ -1,3 +1,4 @@
+package clases;
 /** ENUNCIADO
  9. Implementar una clase Libro que contenga las propiedades: autor, título, referencia y precio, cada una de ellas con su significado natural.
   La clase Libro posee todo tipo de constructores. También deben añadirse los métodos habituales básicos. Dos libros son iguales si tienen la misma referencia.
@@ -17,7 +18,7 @@ Aunque la gestión de la información se hace sobre una lista, los datos iniciales
  serán volcados en dicho archivo una vez realizada algún tipo de modificación sobre ellos.
  */
 
-package clases;
+
 
 import interfaces.Libro;
 
