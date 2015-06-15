@@ -33,7 +33,7 @@ public class GestionadoraLibro
 		autorRnd = UtilidadHumanos.generarNombreApellidosApellidos();
 		precioRnd = rnd.nextInt(101);
 		
-		libroGenerado = new LibroImp(autorRnd, titulo, 9999, precioRnd);
+		libroGenerado = new LibroImp(autorRnd, titulo, precioRnd);
 		// Por terminar
 		
 		return libroGenerado;

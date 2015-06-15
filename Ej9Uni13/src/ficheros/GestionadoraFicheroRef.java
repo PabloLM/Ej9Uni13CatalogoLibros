@@ -36,21 +36,29 @@ public class GestionadoraFicheroRef
 	 */
 	public static int leerUltimaRef()
 	{ // resguardo
+		String lectura;
 		int ultimaReferencia = -1;
 		FileReader fr = null;
 		BufferedReader br = null;
+		
+		if (ficheroRef.exists() == false)
+		{
+			crearFicheroRefPorDefecto();
+		}
 		
 		try
 		{
 			fr = new FileReader(ficheroRef);
 			br = new BufferedReader(fr);
 			// Parseo a entero de la linea leida en texto correspondiente a la ultima referencia
-			ultimaReferencia = Integer.parseInt(br.readLine());
+			lectura = br.readLine();
+			ultimaReferencia = Integer.parseInt(lectura);
 		} catch (FileNotFoundException e)
 		{
 			System.out.println("No se encontró el fichero ultimaRef.txt en leerUltimaRef()");
 		} catch (RuntimeException e)
 		{
+			e.printStackTrace();
 			System.out.println("Runtime exception en leerUltimaRef()");
 		} catch (IOException e)
 		{
@@ -81,22 +89,74 @@ public class GestionadoraFicheroRef
 	 */
 	public static void actualizarUltimaRef()
 	{
-		int anteriorReferencia;
+		int ultimaRefActualizada;
 		
 		FileWriter fw = null;
 		BufferedWriter bw = null; 
 		
-		anteriorReferencia = leerUltimaRef();
+		ultimaRefActualizada = leerUltimaRef() + 1;
 		
 		try
 		{
 			fw = new FileWriter(ficheroRef);
 			bw = new BufferedWriter(fw);
 			
-			bw.write(++anteriorReferencia);
+			bw.write(Integer.toString(ultimaRefActualizada));
 		} catch (IOException e)
 		{
 			System.out.println("Problemitas en actualizarUltimaRef");
+		} finally
+		{
+			try
+			{
+				if (bw != null)
+				{
+					bw.close();
+				} else if (fw != null)
+				{
+					fw.close();
+				}
+			} catch (Exception e2)
+			{
+				System.out.println("Error al cerrar streams en actualizarUltimaRef");
+			}
 		}
 	}
+
+	/*
+	 * crearFicheroRefPorDefecto
+	 */
+	private static void crearFicheroRefPorDefecto()
+	{
+		FileWriter fw = null;
+		BufferedWriter bw = null;
+		
+		try
+		{
+			fw = new FileWriter(ficheroRef);
+			bw = new BufferedWriter(fw);
+			
+			bw.write("1000");
+			bw.newLine();
+		} catch (Exception e)
+		{
+			// TODO: handle exception
+		} finally
+		{
+			try
+			{
+				if (bw != null)
+				{
+					bw.close();
+				} else if (fw != null)
+				{
+					fw.close();
+				}
+			} catch (Exception e2)
+			{
+				System.out.println("Error al cerrar streams en crearFicheroRefPorDefecto");
+			}
+		}
+	}
+
 }
