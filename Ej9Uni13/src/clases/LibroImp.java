@@ -20,6 +20,7 @@ Aunque la gestión de la información se hace sobre una lista, los datos iniciales
 
 
 
+import ficheros.GestionadoraFicheroRef;
 import interfaces.Libro;
 
 import java.io.Serializable;
@@ -75,6 +76,16 @@ public class LibroImp implements Libro,Cloneable,Comparable<LibroImp>,Serializab
 		this.titulo=titulo;
 		this.referencia=referencia;
 		this.precio=precio;
+	}
+	
+	public LibroImp(String autor, String titulo, double precio)
+	{
+		this.autor = autor;
+		this.titulo = titulo;
+		this.referencia = GestionadoraFicheroRef.leerUltimaRef() + 1;
+		this.precio = precio;
+		// Actualizacion del ultimoRef
+		GestionadoraFicheroRef.actualizarUltimaRef();
 	}
 	
 	public String getAutor() {

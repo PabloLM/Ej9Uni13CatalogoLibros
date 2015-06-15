@@ -24,9 +24,9 @@ public class UtilidadHumanos
 		sexoRnd = rnd.nextInt(2);
 		
 		// Asigno un nombre acorde al sexo aleatoriamente escogido
-		nombreGenerado = sexoRnd == mujer ? EnumNombresFemeninos.values()[rnd.nextInt(21)].toString() : EnumNombresMasculinos.values()[rnd.nextInt(21)].toString();
+		nombreGenerado = sexoRnd == mujer ? EnumNombresFemeninos.values()[rnd.nextInt(20)].toString() : EnumNombresMasculinos.values()[rnd.nextInt(20)].toString();
 		// Le concateno dos apellidos cualesquiera
-		nombreGenerado += " " + EnumApellidos.values()[rnd.nextInt(41)].toString() + " " + EnumApellidos.values()[rnd.nextInt(41)].toString();
+		nombreGenerado += " " + EnumApellidos.values()[rnd.nextInt(40)].toString() + " " + EnumApellidos.values()[rnd.nextInt(40)].toString();
 		return nombreGenerado;
 	}
 	
