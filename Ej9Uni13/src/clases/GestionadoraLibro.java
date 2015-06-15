@@ -7,6 +7,10 @@
  */
 package clases;
 
+import java.util.Random;
+
+import enums.UtilidadHumanos;
+
 public class GestionadoraLibro
 {
 	/*
@@ -21,7 +25,16 @@ public class GestionadoraLibro
 	 */
 	public static LibroImp generarLibro(String titulo)
 	{	// Resguardo
+		String autorRnd;
+		double precioRnd;
 		LibroImp libroGenerado = null;
+		Random rnd = new Random();
+		
+		autorRnd = UtilidadHumanos.generarNombreApellidosApellidos();
+		precioRnd = rnd.nextInt(101);
+		
+		libroGenerado = new LibroImp(autorRnd, titulo, 9999, precioRnd);
+		// Por terminar
 		
 		return libroGenerado;
 	}
