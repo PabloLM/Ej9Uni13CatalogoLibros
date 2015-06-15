@@ -1,7 +1,9 @@
 package clases;
 
-import java.io.File;
+
 import java.util.ArrayList;
+
+import ficheros.GestionadoraFicheroCatalogo;
 
 public class GestionadoraCatalogo {
 	
@@ -16,7 +18,7 @@ public class GestionadoraCatalogo {
 	 * Postcondiciones:Se devolverá ASN un objeto de tipo LibroImp cuyo ISBN sea el indicado anteriormente por parámetros  
 	 */
 	
-	public static LibroImp obtenerLibroISBN (int referencia){
+	public static LibroImp obtenerLibroISBN (int ISBN){
 		return null;
 		
 	}
@@ -29,6 +31,7 @@ public class GestionadoraCatalogo {
 	 * Salida:un ArrayList<LibroImp>
 	 * Postcondiciones:Se devolverá ASN un ArrayList<LibroImp> que contendrá los libros escritos por el autor indicado por parámetros
 	 */
+	
 	
 	public static ArrayList<LibroImp>obtenerLibroAutor(String autor){
 		return null;
@@ -48,6 +51,25 @@ public class GestionadoraCatalogo {
 		return null;
 		
 	}
+	
+	
+	
+	/**Interfaz
+	 * Comentario:Devuelve el precio total de los libros del catalogo
+	 * Cabecera:public static double precioTotal()
+	 * Precondiciones:no tiene 
+	 * Entrada:																esta por ver 
+	 * Salida:un real con el precio total
+	 * Postcondiciones:se devolverá ASN un real con el precio total de los libros del catalago 
+	 */
+	
+	public static double precioTotal(){
+			//GestionadoraFicheroCatalogo.obtenerCatalogo();
+			return 0.0;			
+		
+	}
+	
+	
 	
 	
 	
